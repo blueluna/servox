@@ -10,7 +10,7 @@ rustup component add llvm-tools
 Build release and copy elf to binary.
 
 ```shell
-cargo objcopy --release -- -O binary blinky.bin
+cargo objcopy --release --bin blinky -- -O binary blinky.bin
 ```
 
 Generate a memory file using `makehex.py` from serv.

@@ -3,8 +3,8 @@
 
 extern crate panic_halt;
 
-use riscv_rt::entry;
 use riscv;
+use riscv_rt::entry;
 
 const GPIO_BASE: usize = 0x40000000;
 
