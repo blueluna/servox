@@ -1,4 +1,4 @@
 [toolchain]
 channel = "stable"
-components = [ "rust-src", "rustfmt" ]
-targets = ["riscv32imc-unknown-none-elf"]
+components = [ "rust-src", "rustfmt", "llvm-tools" ]
+targets = ["riscv32im-unknown-none-elf"]
