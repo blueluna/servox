@@ -1,9 +1,2 @@
-[target.riscv32im-unknown-none-elf]
-rustflags = [
-  "-C", "link-arg=-Tmemory.x",
-  "-C", "link-arg=-Tlink.x",
-  "-C", "llvm-args=-unroll-threshold=10", # Do not unroll the loop in hello, the timing will be off then
-]
-
-[build]
-target = "riscv32im-unknown-none-elf"
+[alias]
+xtask = "run --release --package xtask --"

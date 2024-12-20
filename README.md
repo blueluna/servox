@@ -3,60 +3,51 @@
 Install some tools.
 
 ```shell
-$ cargo install cargo-binutils
 $ rustup component add llvm-tools
 ```
 
+## Build HEX files
+
+Build release and generate hex memory file for all binaries
+
+```shell
+$ cargo xtask build
+```
+
+Build release and generate hex memory file for a specific binary.
+
+```shell
+$ cargo xtask build <binary>
+```
+
+For more information on development see, [servox/README.md](servox/README.md).
+
 ## Blinky
-
-Build release and copy elf to binary.
-
-```shell
-$ cargo objcopy --release --bin blinky -- -O binary blinky.bin
-```
-
-Generate a memory file using `makehex.py` from serv.
-
-```shell
-$ python3 ./serv/sw/makehex.py servox/blinky.bin > blinky.hex
-```
 
 Build / run in testbench.
 
 ```shell
-$ fusesoc run --target=verilator_tb servant --firmware=blinky.hex
+$ fusesoc run --target=verilator_tb servant --firmware=servox/target/riscv32im-unknown-none-elf/release/blinky.hex
 ```
 
 Build / run on hardware.
 
 ```shell
-$ fusesoc run --target=te0802 servant --firmware=blinky.hex
+$ fusesoc run --target=te0802 servant --firmware=servox/target/riscv32im-unknown-none-elf/release/blinky.hex
 ```
 
 ## Hello
 
-Build release and copy elf to binary.
-
-```shell
-$ cargo objcopy --release --bin hello -- -O binary hello.bin
-```
-
-Generate a memory file using `makehex.py` from serv.
-
-```shell
-$ python3 ./serv/sw/makehex.py servox/hello.bin > hello.hex
-```
-
 Build / run in testbench.
 
 ```shell
-$ fusesoc run --target=verilator_tb servant --firmware=hello.hex --uart_baudrate=57600
+$ fusesoc run --target=verilator_tb servant --firmware=servox/target/riscv32im-unknown-none-elf/release/hello.hex --uart_baudrate=57600
 ```
 
 Build / run on hardware.
 
 ```shell
-$ fusesoc run --target=te0802 servant --firmware=hello.hex
+$ fusesoc run --target=te0802 servant --firmware=servox/target/riscv32im-unknown-none-elf/release/hello.hex
 ```
 
 Connect to the target at 115200 baud rate.

@@ -1,22 +1,4 @@
-[package]
-name = "servox"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-panic-halt = "1.0.0"
-riscv = "0.12"
-riscv-rt = "0.13"
-
-[profile.dev]
-opt-level = 2
-debug = 2
-debug-assertions = true
-overflow-checks = true
-codegen-units = 1
-incremental = false
-
-[profile.release]
-lto = 'fat'
-codegen-units = 1
-strip = 'symbols'
+[workspace]
+members = ['xtask']
+exclude = ['servox']
+resolver = "2"
